@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="AiEHuangYeGameServer"
+                   namespace="AiEHuangYeGameServer.Model">
+
+	<class name="User" table="t_user">
+		<id name="Id" column="id" type="Int32">
+			<generator class="native" /> <!-- 自动生成id，native表示使用数据库的自动生成 -->
+		</id>
+		<property name="Name"  column="name" type="String"/>
+		<property name="Password"  column="password" type="String"/>
+		<property name="IsLogin"  column="isLogin" type="Int32"/>
+		<property name="CreateTime"  column="createtime" type="Int64"/>
+	</class>
+
+</hibernate-mapping>

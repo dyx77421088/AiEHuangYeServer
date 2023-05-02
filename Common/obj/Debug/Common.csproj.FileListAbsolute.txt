@@ -1,0 +1,9 @@
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\bin\Debug\Common.dll
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\bin\Debug\Common.pdb
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\obj\Debug\Common.dll
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\Common\obj\Debug\Common.pdb

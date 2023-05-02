@@ -1,0 +1,10 @@
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\AiEHuangYeGameServer\obj\Debug\AiEHuangYeGameServer.csproj.AssemblyReference.cache
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\AiEHuangYeGameServer\obj\Debug\AiEHuangYeGameServer.csproj.CoreCompileInputs.cache
+C:\Users\dyx\Desktop\project\unity\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\hibernate.cfg.xml
+C:\Users\dyx\Desktop\project\unity\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\log4net.config
+C:\Users\dyx\Desktop\project\unity\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\AiEHuangYeGameServer.dll
+C:\Users\dyx\Desktop\project\unity\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\AiEHuangYeGameServer.pdb
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\AiEHuangYeGameServer\obj\Debug\AiEHuangYeGameServer.csproj.CopyComplete
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\AiEHuangYeGameServer\obj\Debug\AiEHuangYeGameServer.dll
+C:\Users\dyx\Desktop\project\unity\MyGameServer\AiEHuangYeGameServer\AiEHuangYeGameServer\obj\Debug\AiEHuangYeGameServer.pdb
+C:\Users\dyx\Desktop\project\unity\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\AiEHuangYeGameServer.dll.config
