@@ -22,6 +22,10 @@ namespace Common
         /// <summary>
         /// 花草
         /// </summary>
-        Grass
+        Grass,
+        /// <summary>
+        /// 采集的
+        /// </summary>
+        Collect,
     }
 }

@@ -30,6 +30,9 @@ namespace Common
         /// 数据，包含json的数据
         /// </summary>
         JsonData,
-
+        /// <summary>
+        /// 用户id
+        /// </summary>
+        UserId
     }
 }

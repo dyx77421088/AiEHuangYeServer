@@ -103,6 +103,7 @@
     <Compile Include="Handler\BaseHandler.cs" />
     <Compile Include="Handler\DefaultHandler.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
+    <Compile Include="Handler\PlayerCollectItemsHandler.cs" />
     <Compile Include="Handler\PlayerAnimatorHandler.cs" />
     <Compile Include="Handler\PlayerNewPositionHandler.cs" />
     <Compile Include="Handler\RegisterHandler.cs" />

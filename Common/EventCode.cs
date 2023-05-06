@@ -23,5 +23,9 @@ namespace Common
         /// 初始化地图
         /// </summary>
         InitMap,
+        /// <summary>
+        /// 采集物品，通知各个用户
+        /// </summary>
+        CollectItems
     }
 }

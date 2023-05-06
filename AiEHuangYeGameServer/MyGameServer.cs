@@ -18,7 +18,7 @@ namespace AiEHuangYeGameServer
         public static List<Client> clients = new List<Client>();
         public static List<Client> loginClients = new List<Client>();
         public static MyList<MapResource> maps = new MyList<MapResource>();
-        public static MyGameServer Instance
+        public static new MyGameServer Instance
         {
             get;
             private set;
@@ -52,6 +52,10 @@ namespace AiEHuangYeGameServer
             // 初始化地图
             UploadMapHandler uploadMapHandler = new UploadMapHandler();
             handlerDict.Add(uploadMapHandler.code, uploadMapHandler);
+
+            // 采集
+            PlayerCollectItemsHandler playerCollectItemsHandler = new PlayerCollectItemsHandler();
+            handlerDict.Add(playerCollectItemsHandler.code, playerCollectItemsHandler);
         }
         #region 重写的父类，处理一些初始化
         protected override PeerBase CreatePeer(InitRequest initRequest)
@@ -94,5 +98,23 @@ namespace AiEHuangYeGameServer
         #endregion
 
 
+        public void UpdateMapById(MapResource map)
+        {
+            for (int i = 0; i < maps.Count; i++) 
+            {
+                if (maps[i].Id == map.Id)
+                {
+                    maps[i] = map;
+                    return;
+                }
+            }
+        }
+
+        public void DeleteMapById(int id)
+        {
+            maps.ForEach(map => { 
+                if (map.Id == id) maps.Remove(map);
+            });
+        }
     }
 }

@@ -31,5 +31,9 @@ namespace Common
         /// 第一个用户初始化地图，把这个地图上的资源初始化到服务器
         /// </summary>
         InitMap,
+        /// <summary>
+        /// 采集物品的操作，需要同步东各个用户
+        /// </summary>
+        CollectItems
     }
 }

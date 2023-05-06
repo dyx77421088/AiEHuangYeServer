@@ -29,8 +29,6 @@ namespace AiEHuangYeGameServer.Handler
             User user = new UserManage().Login(username, password);
             bool isLogin = user != null;
 
-            
-
             // 其它用户的角色的位置信息,,还有自己的
             MyList<Player> otherPlayerList = new MyList<Player>();
             if (isLogin)
@@ -60,7 +58,7 @@ namespace AiEHuangYeGameServer.Handler
 
                 //  通知用户初始化地图
                 EventData eData = new EventData((byte)EventCode.InitMap);
-                //MyGameServer.logger.Info("服务器中的地图" + MyGameServer.maps);
+                MyGameServer.logger.Info("服务器中的地图" + MyGameServer.maps);
                 Dictionary<byte, object> d = new Dictionary<byte, object>();
                 d.Add((byte)ParameterCode.JsonData, ToGson.Success(MyGameServer.maps, true));
                 eData.Parameters = d;
