@@ -26,6 +26,11 @@ namespace Common
         /// <summary>
         /// 采集物品，通知各个用户
         /// </summary>
-        CollectItems
+        CollectItems,
+        /// <summary>
+        /// 上传建筑
+        /// </summary>
+        UploadBuild,
+
     }
 }

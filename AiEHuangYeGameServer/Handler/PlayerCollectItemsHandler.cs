@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using AiEHuangYeGameServer.Util;
 
 namespace AiEHuangYeGameServer.Handler
 {
@@ -29,11 +31,16 @@ namespace AiEHuangYeGameServer.Handler
             MapCollectResource resource = MyJsonUtils.GetObject<MapCollectResource>(text);
 
             MyGameServer.logger.Info(text + "   " + resource);
-            MyGameServer.logger.Info("这个resource是" + resource.Id + "  " + resource.Index);
-            MyGameServer.Instance.UpdateMapById(resource);
+            MyGameServer.logger.Info("用户的id是" + id + "这个resource是" + resource.Id + "  " + resource.Index);
             if(!resource.CanRegeneration && resource.IsDestruction)  // 是否已经是销毁状态且不能再生
-            { 
+            {
+                MyGameServer.logger.Info("删除了！！！！");
                 MyGameServer.Instance.DeleteMapById(resource.Id);
+            }
+            else
+            {
+                MyGameServer.logger.Info(resource.IsDestruction + "修改了！！！！" + resource.CanRegeneration);
+                MyGameServer.Instance.UpdateMapById(resource);
             }
 
             foreach (Client other in MyGameServer.loginClients)
@@ -42,8 +49,10 @@ namespace AiEHuangYeGameServer.Handler
                 {
                     // 通知
                     EventData eventData = new EventData((byte)EventCode.CollectItems);
-                    Dictionary<byte, object> data = new Dictionary<byte, object>();
-                    data.Add((byte)ParameterCode.JsonData, ToGson.Success(resource));
+                    Dictionary<byte, object> data = new Dictionary<byte, object>
+                    {
+                        { (byte)ParameterCode.JsonData, ToGson.Success(resource) }
+                    };
                     eventData.SetParameters(data);
                     other.SendEvent(eventData, new SendParameters());
                 }

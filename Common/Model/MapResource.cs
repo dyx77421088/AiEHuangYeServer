@@ -13,6 +13,7 @@ namespace Common.Model
     /// <summary>
     /// 地图上的资源
     /// </summary>
+    [Serializable]
     public class MapResource
     {
         private int id;

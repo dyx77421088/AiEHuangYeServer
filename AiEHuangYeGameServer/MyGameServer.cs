@@ -56,6 +56,10 @@ namespace AiEHuangYeGameServer
             // 采集
             PlayerCollectItemsHandler playerCollectItemsHandler = new PlayerCollectItemsHandler();
             handlerDict.Add(playerCollectItemsHandler.code, playerCollectItemsHandler);
+
+            // 上传建筑
+            UploadBuildHandler uploadBuildHandler = new UploadBuildHandler();
+            handlerDict.Add(uploadBuildHandler.code, uploadBuildHandler);
         }
         #region 重写的父类，处理一些初始化
         protected override PeerBase CreatePeer(InitRequest initRequest)
@@ -115,6 +119,45 @@ namespace AiEHuangYeGameServer
             maps.ForEach(map => { 
                 if (map.Id == id) maps.Remove(map);
             });
+        }
+
+        public static bool AddLoginClient(Client client, int id)
+        {
+            // 先判断登录是否已经有client了
+            foreach (Client client1 in loginClients)
+            {
+                if (id == client1.Player.Id)
+                {
+                    client = client1;
+                    return false;
+                }
+            }
+            loginClients.Add(client);
+            return true;
+        }
+
+        public static Player GetPlayerById(int id)
+        {
+            foreach(Client client in clients)
+            {
+                if (client.Player != null && id == client.Player.Id)
+                    return client.Player;
+            }
+            return null;
+        }
+
+        public static bool UpdateClient(Client client)
+        {
+            foreach (Client client1 in clients)
+            {
+                if (client.Player.Id == client1.Player.Id)
+                {
+                    client1.Player = client.Player; // 更新player
+                    return true;
+                }
+            }
+            clients.Add(client);
+            return false;
         }
     }
 }

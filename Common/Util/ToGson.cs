@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Util
 {
@@ -14,14 +9,14 @@ namespace Common.Util
             return "{\"status\":" + status + ",\"message\":\"" + info + "\"}";
         }
 
-        public static string Info(int status, string message, object data, bool useSerialize = false)
+        public static string Info(int status, string message, object data, bool useSerialize = true)
         {
             return "{\"status\":" + status + ",\"message\":\"" + message + "\" " + ",\"data\":" + 
                    (useSerialize ? JsonConvert.SerializeObject(data) : data) 
                 + " }";
         }
 
-        public static string Success(object data, bool useSerialize = false)
+        public static string Success(object data, bool useSerialize = true)
         {
             return "{\"status\":" + 200 + ",\"data\":" +
                     (useSerialize ? JsonConvert.SerializeObject(data) : data)

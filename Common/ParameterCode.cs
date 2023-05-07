@@ -33,6 +33,10 @@ namespace Common
         /// <summary>
         /// 用户id
         /// </summary>
-        UserId
+        UserId,
+        /// <summary>
+        /// 本用户的信息
+        /// </summary>
+        Player
     }
 }

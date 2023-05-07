@@ -34,41 +34,49 @@ namespace AiEHuangYeGameServer.Handler
             if (isLogin)
             {
                 // 保存登录的client
-                MyGameServer.loginClients.Add(peer);
-                peer.Player = new Player(user.Id, user.Name, new Vector3DPosition());
-                //peer.ClientTread = new ClientTread(peer);
-                // 先不开线程
-                //peer.ClientTread.Start();
-
-                // 通知其它已在线的用户，
-                foreach (Client temp in MyGameServer.loginClients)
+                if (MyGameServer.AddLoginClient(peer, user.Id))
                 {
-                    if (temp.Player.Id != peer.Player.Id)
+                    peer.Player = MyGameServer.GetPlayerById(user.Id);
+                    if (peer.Player == null)
                     {
-                        EventData eventData = new EventData((byte)EventCode.NewPlayer);
-                        Dictionary<byte, object> data = new Dictionary<byte, object>();
-                        data.Add((byte)ParameterCode.JsonData, ToGson.Success(peer.Player));
-                        eventData.Parameters = data;
-                        temp.SendEvent(eventData, new SendParameters());
-
+                        MyGameServer.logger.Info("为空所以我要重新new");
+                        peer.Player = new Player(user.Id, user.Name, new Vector3DPosition());
                     }
-                    // 添加进来
-                    otherPlayerList.Add(temp.Player);
-                }
+                    
+                    //peer.ClientTread = new ClientTread(peer);
+                    // 先不开线程
+                    //peer.ClientTread.Start();
 
-                //  通知用户初始化地图
-                EventData eData = new EventData((byte)EventCode.InitMap);
-                MyGameServer.logger.Info("服务器中的地图" + MyGameServer.maps);
-                Dictionary<byte, object> d = new Dictionary<byte, object>();
-                d.Add((byte)ParameterCode.JsonData, ToGson.Success(MyGameServer.maps, true));
-                eData.Parameters = d;
-                peer.SendEvent(eData, new SendParameters());
+                    // 通知其它已在线的用户，
+                    foreach (Client temp in MyGameServer.loginClients)
+                    {
+                        if (temp.Player.Id != peer.Player.Id)
+                        {
+                            EventData eventData = new EventData((byte)EventCode.NewPlayer);
+                            Dictionary<byte, object> data = new Dictionary<byte, object>();
+                            data.Add((byte)ParameterCode.JsonData, ToGson.Success(peer.Player));
+                            eventData.Parameters = data;
+                            temp.SendEvent(eventData, new SendParameters());
+
+                        }
+                        // 添加进来
+                        otherPlayerList.Add(temp.Player);
+                    }
+
+                    //  通知用户初始化地图
+                    EventData eData = new EventData((byte)EventCode.InitMap);
+                    MyGameServer.logger.Info("服务器中的地图" + MyGameServer.maps);
+                    Dictionary<byte, object> d = new Dictionary<byte, object>();
+                    d.Add((byte)ParameterCode.JsonData, ToGson.Success(MyGameServer.maps, true));
+                    eData.Parameters = d;
+                    peer.SendEvent(eData, new SendParameters());
+                }
+                
             }
 
             MyServerUtils.SendDataToClient(peer, sendParameters, operationRequest.OperationCode,
                 ToGson.Info(isLogin ? 200 : 400, isLogin ? "登录成功" : "用户名或密码错误", otherPlayerList));
-            //MyGameServer.logger.Info("测试啊啊啊 :" + (ToGson.Info(isLogin ? 200 : 400, otherPlayerList)));
-            
+
             MyGameServer.logger.Info("用户(" + username + ")登录=>" + (isLogin ? "登录成功!" : "用户名或密码错误"));
             MyGameServer.logger.Info("当前在线人数为:" + (otherPlayerList.Count));
         }

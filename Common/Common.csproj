@@ -50,6 +50,8 @@
     <Compile Include="Model\MapResource.cs" />
     <Compile Include="Model\MyList.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\SlotInfo.cs" />
+    <Compile Include="Model\UploadBuildModel.cs" />
     <Compile Include="Model\Vector3DPosition.cs" />
     <Compile Include="OperationCode.cs" />
     <Compile Include="ParameterCode.cs" />

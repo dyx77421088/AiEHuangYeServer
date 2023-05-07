@@ -34,6 +34,10 @@ namespace Common
         /// <summary>
         /// 采集物品的操作，需要同步东各个用户
         /// </summary>
-        CollectItems
+        CollectItems,
+        /// <summary>
+        /// 用户建筑，上传通知各个其它用户
+        /// </summary>
+        UploadBuild,
     }
 }

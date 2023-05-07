@@ -5,10 +5,7 @@ using Common;
 using Photon.SocketServer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace AiEHuangYeGameServer.Handler
 {
@@ -26,11 +23,15 @@ namespace AiEHuangYeGameServer.Handler
             // 初始化地图
             Dictionary<byte, object> obj = operationRequest.Parameters;
             string text = DictUtils.GetStringValue<byte, object>(obj, (byte)ParameterCode.JsonData);
-            MyGameServer.logger.Info("json=" + text);
-            MyList<MapResource> mapResources = MyJsonUtils.GetList<MapResource>(text);
-            MyGameServer.logger.Info("装欢之后的" + mapResources);
+            //MyGameServer.logger.Info("用户上传了地图！！！！！！=" + text);
+            MyList<MapResource> mapResources = MyJsonUtils.GetMapResourceList(text);
+
+            
+
+            //MyGameServer.logger.Info("第一次装欢" + ToGson.Success(mapResources));
             // 初始化地图
             MyGameServer.maps = mapResources;
+            //MyGameServer.logger.Info("第二次转换" + ToGson.Success(MyGameServer.maps));
         }
     }
 }

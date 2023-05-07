@@ -58,6 +58,10 @@
     <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\AiEHuangYe\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\..\utils\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\MyGameServer\bin\NHibernate.dll</HintPath>
     </Reference>
@@ -107,6 +111,7 @@
     <Compile Include="Handler\PlayerAnimatorHandler.cs" />
     <Compile Include="Handler\PlayerNewPositionHandler.cs" />
     <Compile Include="Handler\RegisterHandler.cs" />
+    <Compile Include="Handler\UploadBuildHandler.cs" />
     <Compile Include="Handler\UploadMapHandler.cs" />
     <Compile Include="Manage\IUserManage.cs" />
     <Compile Include="Manage\UserManage.cs" />

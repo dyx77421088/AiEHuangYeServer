@@ -40,8 +40,17 @@ namespace AiEHuangYeGameServer.MyClient
 
             // 移除这个对象
             //clientTread?.Close(); // 不为空就关闭它
-            MyGameServer.loginClients.Remove(this);
-            MyGameServer.clients.Remove(this);
+            
+            if (player == null)
+            {
+                MyGameServer.logger.Info("我等于null所以销毁了");
+                MyGameServer.clients.Remove(this);
+            }
+            else
+            {
+                MyGameServer.UpdateClient(this);
+                MyGameServer.loginClients.Remove(this);
+            }
             MyGameServer.logger.Info("一个客户端断开连接了");
 
         }

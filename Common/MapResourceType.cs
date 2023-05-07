@@ -27,5 +27,9 @@ namespace Common
         /// 采集的
         /// </summary>
         Collect,
+        /// <summary>
+        /// 建筑
+        /// </summary>
+        Build
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
+    [Serializable]
     public class MapCollectResource:MapResource
     {
         private bool canRegeneration;
