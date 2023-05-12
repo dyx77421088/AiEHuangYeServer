@@ -20,14 +20,14 @@ namespace Common.Model
         private PlayerAnimation animation; // 用户需要进行的动画
         private Vector3DPosition position;
 
-        private int hungerDegreeUpperLimit = 1000; // 饥饿度上限
-        private int moistureUpperLimit = 1000; // 水分上限
-        private int strengthUpperLimit = 1000; // 体力上限
-        private int resistanceUpperLimit = 1000; // 抵抗力上限
-        private int hungerDegree = 1000; // 饥饿度
-        private int moisture = 1000; // 水分
-        private int strength = 1000; // 体力
-        private int resistance = 1000; // 抵抗力
+        private int hungerDegreeUpperLimit = 150; // 饥饿度上限
+        private int moistureUpperLimit = 100; // 水分上限
+        private int strengthUpperLimit = 500; // 体力上限
+        private int resistanceUpperLimit = 100; // 抵抗力上限
+        private int hungerDegree = 150; // 饥饿度
+        private int moisture = 100; // 水分
+        private int strength = 500; // 体力
+        private int resistance = 100; // 抵抗力
 
         private List<SlotInfo> slots = new List<SlotInfo>();
 
